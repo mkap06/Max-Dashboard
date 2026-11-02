@@ -2,9 +2,29 @@ const transcript = document.getElementById("transcript");
 const composer = document.getElementById("composer");
 const input = document.getElementById("message");
 const clock = document.getElementById("clock");
-const prompts = document.getElementById("prompts");
 
 const NOTE_KEY = "max-kaplan-bot-notes";
+
+const MAX = {
+  name: "Max Kaplan",
+  role: "Student and builder",
+  github: "mkap06",
+  githubUrl: "https://github.com/mkap06",
+  practice:
+    "He likes working directly in code — making something, debugging it, then iterating. No long theory pile first.",
+  project:
+    "Right now he is building this page: Max Kaplan Bot, a public frame people can walk up to when he is not in the room.",
+};
+
+function aboutMax() {
+  return [
+    `${MAX.name} is a ${MAX.role.toLowerCase()}.`,
+    MAX.practice,
+    MAX.project,
+    `Public code lives at ${MAX.githubUrl}.`,
+    "I am the stand-in, not him. If you need the person, leave a clear note.",
+  ].join(" ");
+}
 
 function nowStamp() {
   return new Date().toLocaleTimeString([], { hour12: false });
@@ -36,15 +56,27 @@ function replyTo(raw) {
     return "Say something. I am a frame, not a mind reader.";
   }
 
-  if (/work|project|building|coding|website|dashboard/.test(q)) {
-    return "Max likes working directly in code — making, debugging, iterating. This dashboard is a public frame for a bot that can stand in for him. Right now you are talking to the prototype: chat, presence, a place people can walk up to.";
+  if (
+    /who is max|who'?s max|about max|tell me about|max kaplan|background|bio|student/.test(
+      q
+    )
+  ) {
+    return aboutMax();
+  }
+
+  if (/github|code|repo/.test(q)) {
+    return `Max publishes as ${MAX.github} on GitHub: ${MAX.githubUrl}. ${MAX.practice}`;
+  }
+
+  if (/work|project|building|coding|website|dashboard|how does he/.test(q)) {
+    return `${MAX.practice} ${MAX.project} You are in the prototype: chat, presence, a place people can walk up to.`;
   }
 
   if (/real max|reach|contact|email|message him|get in touch/.test(q)) {
-    return "If you need the real Max, leave a clear note here and I will hold it in this browser until a backend is wired up. Best path: be specific about who you are and what you need.";
+    return "If you need the real Max, leave a clear note here and I will hold it in this browser until a backend is wired up. You can also find him on GitHub as mkap06. Be specific about who you are and what you need.";
   }
 
-  if (/note|stopped by|tell max|leave/.test(q)) {
+  if (/leave a note|stopped by|leave him|message for max/.test(q)) {
     saveNote(text);
     return "Noted. I parked that in this browser as a message for Max. If you want it to actually reach him later, this page still needs a real inbox behind it.";
   }
@@ -54,15 +86,15 @@ function replyTo(raw) {
   }
 
   if (/hello|hi |hey|how are you/.test(q)) {
-    return "Hey. You found the Max Kaplan frame. Ask me who I am, what Max is working on, or leave him a note.";
+    return "Hey. You found the Max Kaplan frame. Ask who Max is, what he is working on, or leave him a note.";
   }
 
   if (/help|what can you/.test(q)) {
-    return "You can ask who I am, how to reach Max, what this page is, or drop a note. Keep it short. I answer like a stand-in, not a search engine.";
+    return "Ask who Max Kaplan is, how he works, where his GitHub is, how to reach him, or drop a note. Keep it short. I answer like a stand-in, not a search engine.";
   }
 
   saveNote(text);
-  return `Got it: “${text}”. I will treat that as something to hold for Max. If you want a direct answer, try asking who I am, how to reach him, or what this frame is for.`;
+  return `Got it: “${text}”. I will treat that as something to hold for Max. If you want a direct answer, ask who Max is, how he works, or how to reach him.`;
 }
 
 function send(text) {
@@ -80,7 +112,7 @@ composer.addEventListener("submit", (event) => {
   send(text);
 });
 
-prompts.addEventListener("click", (event) => {
+document.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-prompt]");
   if (!button) return;
   send(button.dataset.prompt);
@@ -88,7 +120,7 @@ prompts.addEventListener("click", (event) => {
 
 addBubble(
   "bot",
-  "This is the Max Kaplan frame. I am his virtual double — a bot people can use to interact with Max Kaplan. Ask me something, or leave a note."
+  "This is the Max Kaplan frame. I am his virtual double. Ask who Max is, what he is building, or leave a note."
 );
 
 function tick() {

@@ -9,74 +9,145 @@
       content="Talk with a virtual double of Max Kaplan. A framed bot people can use to interact with Max."
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23140e09' width='100' height='100'/><text y='.72em' x='12' font-size='72' fill='%23e8c07a'>MK</text></svg>" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A66C2' rx='12' width='100' height='100'/><text y='.78em' x='18' font-size='72' font-family='Arial' font-weight='700' fill='white'>in</text></svg>"
+    />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="letterbox">
-      <header class="chrome">
-        <p class="mark">MK // 01</p>
-        <p class="status"><span class="dot"></span> Live frame</p>
-        <p class="mark">Virtual double</p>
-      </header>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="logo" href="./" aria-label="Max Kaplan Bot home">
+          <span class="logo-mark">in</span>
+          <span class="logo-text">Max Kaplan</span>
+        </a>
+        <label class="search">
+          <span class="sr-only">Search</span>
+          <input type="search" placeholder="Search" disabled />
+        </label>
+        <nav class="nav-links" aria-label="Primary">
+          <span class="nav-item">Home</span>
+          <span class="nav-item">My Network</span>
+          <span class="nav-item">Jobs</span>
+          <span class="nav-item current">Messaging</span>
+          <span class="nav-item">Notifications</span>
+        </nav>
+        <p class="nav-me">
+          <span class="nav-avatar">MK</span>
+          Me
+        </p>
+      </div>
+    </header>
 
-      <main class="stage">
-        <aside class="slate">
-          <p class="take">TAKE 01</p>
-          <h1>Max Kaplan Bot</h1>
-          <p class="logline">
-            A virtual double of Max Kaplan. Ask it questions, leave a note, or
-            use it as a stand-in when Max is not in the room.
+    <main class="shell">
+      <div class="feed">
+        <article class="card profile">
+          <div class="cover" aria-hidden="true"></div>
+          <div class="profile-body">
+            <div class="photo" aria-hidden="true">MK</div>
+            <div class="profile-actions">
+              <button type="button" class="btn primary" data-prompt="How do I get in touch with the real Max?">
+                Connect
+              </button>
+              <button type="button" class="btn ghost" data-prompt="Who is Max Kaplan?">
+                Message
+              </button>
+            </div>
+            <h1>Max Kaplan</h1>
+            <p class="headline">Student and builder · Virtual double available</p>
+            <p class="meta">
+              Open to work · GitHub
+              <a href="https://github.com/mkap06">mkap06</a>
+            </p>
+            <p class="open-to">
+              <span class="badge">Open to</span>
+              internships, building in public, and leaving a note for the real Max
+            </p>
+          </div>
+        </article>
+
+        <section class="card about">
+          <h2>About</h2>
+          <p>
+            Max Kaplan is a student who likes working directly in code — making
+            something, debugging it, then iterating. This profile is his virtual
+            double: a stand-in people can talk to when he is not in the room.
           </p>
-          <ul class="credits">
-            <li><span>Subject</span> Max Kaplan</li>
-            <li><span>Role</span> Student / builder</li>
-            <li><span>Mode</span> Interactive frame</li>
-          </ul>
-          <div class="prompts" id="prompts">
-            <button type="button" data-prompt="Who are you?">Who are you?</button>
-            <button type="button" data-prompt="How do I get in touch with the real Max?">Reach Max</button>
-            <button type="button" data-prompt="What are you working on?">Work</button>
-            <button type="button" data-prompt="Leave Max a note that I stopped by.">Leave a note</button>
-          </div>
-        </aside>
-
-        <section class="frame" aria-label="Max Kaplan bot">
-          <div class="frame-corners" aria-hidden="true"></div>
-          <div class="monitor">
-            <div class="monitor-bar">
-              <span>MAX KAPLAN — VIRTUAL DOUBLE</span>
-              <span id="clock">00:00:00</span>
-            </div>
-            <div class="avatar-row">
-              <div class="avatar" aria-hidden="true">MK</div>
-              <div>
-                <p class="avatar-name">Max Kaplan</p>
-                <p class="avatar-sub">Not Max. A framed stand-in you can talk to.</p>
-              </div>
-            </div>
-            <div class="transcript" id="transcript" role="log" aria-live="polite"></div>
-            <form class="composer" id="composer">
-              <label class="sr-only" for="message">Message Max Kaplan Bot</label>
-              <input
-                id="message"
-                name="message"
-                type="text"
-                autocomplete="off"
-                placeholder="Talk to Max’s double…"
-                required
-              />
-              <button type="submit">Send</button>
-            </form>
-          </div>
         </section>
-      </main>
 
-      <footer class="chrome">
-        <p>Open <code>index.html</code> locally or serve this folder. Ready for GitHub Pages.</p>
-        <p>Notes stay in this browser unless you wire a backend later.</p>
-      </footer>
-    </div>
+        <section class="card experience">
+          <h2>Experience</h2>
+          <ul class="jobs">
+            <li>
+              <div class="job-mark" aria-hidden="true">MK</div>
+              <div>
+                <p class="job-title">Max Kaplan Bot</p>
+                <p class="job-co">Virtual double · Interactive frame</p>
+                <p class="job-time">Present</p>
+                <p class="job-desc">
+                  Public stand-in for Max. Chat, presence, and a place people can walk up to.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="job-mark code" aria-hidden="true">&lt;/&gt;</div>
+              <div>
+                <p class="job-title">Student / builder</p>
+                <p class="job-co">Practice · Make, debug, iterate</p>
+                <p class="job-desc">
+                  Works in the code itself. No long theory pile first.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="messaging" aria-label="Max Kaplan bot">
+        <div class="msg-head">
+          <div>
+            <p class="msg-name">Messaging</p>
+            <p class="msg-sub">
+              <span class="online"></span>
+              Max Kaplan Bot · <span id="clock">00:00:00</span>
+            </p>
+          </div>
+          <span class="msg-status">Active now</span>
+        </div>
+        <div class="msg-person">
+          <div class="photo mini" aria-hidden="true">MK</div>
+          <div>
+            <p class="avatar-name">Max Kaplan</p>
+            <p class="avatar-sub">Not Max. A framed stand-in you can talk to.</p>
+          </div>
+        </div>
+        <div class="prompts" id="prompts">
+          <button type="button" data-prompt="Who is Max Kaplan?">Who is Max?</button>
+          <button type="button" data-prompt="Who are you?">Who are you?</button>
+          <button type="button" data-prompt="How do I get in touch with the real Max?">Reach Max</button>
+          <button type="button" data-prompt="What are you working on?">Work</button>
+          <button type="button" data-prompt="Leave Max a note that I stopped by.">Leave a note</button>
+        </div>
+        <div class="transcript" id="transcript" role="log" aria-live="polite"></div>
+        <form class="composer" id="composer">
+          <label class="sr-only" for="message">Message Max Kaplan Bot</label>
+          <input
+            id="message"
+            name="message"
+            type="text"
+            autocomplete="off"
+            placeholder="Write a message…"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </aside>
+    </main>
+
+    <footer class="foot">
+      <p>Notes stay in this browser unless you wire a backend later.</p>
+      <p>Theme only — not affiliated with LinkedIn.</p>
+    </footer>
     <script src="bot.js"></script>
   </body>
 </html>
